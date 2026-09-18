@@ -1,5 +1,7 @@
 # AI Task Manager
 
+[![CI](https://github.com/simaofop/ai-task-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/simaofop/ai-task-manager/actions/workflows/ci.yml)
+
 A simple task management web application built with React, TypeScript and Vite.
 
 The project was developed using an AI-assisted software development workflow with OpenAI Codex, while keeping human control over requirements, validation, Git history and architectural decisions.
@@ -45,6 +47,22 @@ Create a production build:
 ```bash
 npm run build
 ```
+
+## Testing
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+Run the test suite with V8 coverage reporting:
+
+```bash
+npm run test:coverage
+```
+
+CI runs the production build and tests automatically.
 
 ## AI-Assisted Development
 
