@@ -6,9 +6,24 @@
 ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white)
 
-A simple task management web application built with React, TypeScript and Vite.
+AI Task Manager is a learning project created as my first hands-on experience with AI coding agents and agent-assisted software development.
 
-The project was developed using an AI-assisted software development workflow with OpenAI Codex, while keeping human control over requirements, validation, Git history and architectural decisions.
+The main goal of the project was not only to build a functional React application, but also to learn how to integrate AI agents into a structured software engineering workflow.
+
+Throughout the project, I used it as a practical environment to improve my skills with:
+
+- Git and GitHub
+- Issues and feature branches
+- Pull Requests
+- AI-assisted implementation
+- Human code review
+- Automated testing
+- Test coverage
+- GitHub Actions / CI
+- Vercel deployment
+- Technical documentation
+
+OpenAI Codex was used as the coding agent, while requirements, validation, Git workflow, review decisions and project organisation remained under human control.
 
 ## Live Demo
 
