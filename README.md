@@ -6,6 +6,10 @@ A simple task management web application built with React, TypeScript and Vite.
 
 The project was developed using an AI-assisted software development workflow with OpenAI Codex, while keeping human control over requirements, validation, Git history and architectural decisions.
 
+## Live Demo
+
+[Open the live application](https://ai-task-manager-eight-rho.vercel.app/)
+
 ## Preview
 
 ![AI Task Manager](docs/screenshots/task-manager.png)
