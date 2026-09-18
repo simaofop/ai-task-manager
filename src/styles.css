@@ -31,6 +31,16 @@ h1 { margin: 0; font: 600 clamp(2rem, 5vw, 2.7rem)/1.1 'Playfair Display', serif
 .check-button:hover { border-color: #6e5bd4; }
 .completed .check-button { border-color: #6e5bd4; background: #6e5bd4; }
 .task-title { flex: 1; font-size: .95rem; }
+.edit-form { display: flex; align-items: center; flex: 1; gap: 7px; }
+.edit-form input { min-width: 0; flex: 1; border: 1px solid #8d7be7; border-radius: 8px; padding: 8px 10px; color: #26262d; outline: none; box-shadow: 0 0 0 3px #8d7be71f; font-size: .95rem; }
+.edit-button, .edit-action { border: 0; border-radius: 7px; padding: 5px 8px; color: #8b8c98; background: transparent; font-size: .76rem; }
+.edit-button { opacity: 0; transition: opacity .2s, color .2s; }
+.task:hover .edit-button, .edit-button:focus-visible { opacity: 1; }
+.edit-button:focus-visible { outline: 2px solid #8d7be7; outline-offset: 2px; }
+.edit-button:hover { color: #5d4bc2; }
+.edit-action { flex: 0 0 auto; }
+.save-action { color: #5d4bc2; background: #f0edff; font-weight: 600; }
+.cancel-action:hover { color: #5d4bc2; }
 .completed .task-title { color: #aaaab4; text-decoration: line-through; }
 .delete-button { border: 0; padding: 3px 7px; color: #b1b1bc; background: transparent; font-size: 1.35rem; line-height: 1; opacity: 0; transition: opacity .2s, color .2s; }
 .task:hover .delete-button, .delete-button:focus { opacity: 1; }
@@ -45,4 +55,5 @@ h1 { margin: 0; font: 600 clamp(2rem, 5vw, 2.7rem)/1.1 'Playfair Display', serif
 .footer-note { margin: 25px 0 0; color: #b1b2bd; font-size: .78rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 @keyframes slide-in { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 560px) { .page-shell { padding: 24px 12px; } .app-header { padding: 30px 24px 24px; } .add-form, .filter-bar { padding-left: 24px; padding-right: 24px; } .task-list { padding-left: 10px; padding-right: 10px; } .app-footer { padding-left: 24px; padding-right: 24px; } .add-form { flex-direction: column; } .add-form button { padding: 12px; } }
+@media (hover: none), (pointer: coarse) { .edit-button, .delete-button { opacity: 1; } }
+@media (max-width: 560px) { .page-shell { padding: 24px 12px; } .app-header { padding: 30px 24px 24px; } .add-form, .filter-bar { padding-left: 24px; padding-right: 24px; } .task-list { padding-left: 10px; padding-right: 10px; } .app-footer { padding-left: 24px; padding-right: 24px; } .add-form { flex-direction: column; } .add-form button { padding: 12px; } .edit-button { opacity: 1; } }
