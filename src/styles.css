@@ -31,6 +31,15 @@ h1 { margin: 0; font: 600 clamp(2rem, 5vw, 2.7rem)/1.1 'Playfair Display', serif
 .check-button:hover { border-color: #6e5bd4; }
 .completed .check-button { border-color: #6e5bd4; background: #6e5bd4; }
 .task-title { flex: 1; font-size: .95rem; }
+.edit-form { display: flex; align-items: center; flex: 1; gap: 7px; }
+.edit-form input { min-width: 0; flex: 1; border: 1px solid #8d7be7; border-radius: 8px; padding: 8px 10px; color: #26262d; outline: none; box-shadow: 0 0 0 3px #8d7be71f; font-size: .95rem; }
+.edit-button, .edit-action { border: 0; border-radius: 7px; padding: 5px 8px; color: #8b8c98; background: transparent; font-size: .76rem; }
+.edit-button { opacity: 0; transition: opacity .2s, color .2s; }
+.task:hover .edit-button, .edit-button:focus { opacity: 1; }
+.edit-button:hover { color: #5d4bc2; }
+.edit-action { flex: 0 0 auto; }
+.save-action { color: #5d4bc2; background: #f0edff; font-weight: 600; }
+.cancel-action:hover { color: #5d4bc2; }
 .completed .task-title { color: #aaaab4; text-decoration: line-through; }
 .delete-button { border: 0; padding: 3px 7px; color: #b1b1bc; background: transparent; font-size: 1.35rem; line-height: 1; opacity: 0; transition: opacity .2s, color .2s; }
 .task:hover .delete-button, .delete-button:focus { opacity: 1; }

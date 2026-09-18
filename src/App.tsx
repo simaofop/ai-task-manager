@@ -23,6 +23,8 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>(loadTasks)
   const [newTask, setNewTask] = useState('')
   const [filter, setFilter] = useState<Filter>('all')
+  const [editingTaskId, setEditingTaskId] = useState<number | null>(null)
+  const [editingTitle, setEditingTitle] = useState('')
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
@@ -58,6 +60,27 @@ function App() {
 
   function deleteTask(id: number) {
     setTasks((currentTasks) => currentTasks.filter((task) => task.id !== id))
+  }
+
+  function startEditing(task: Task) {
+    setEditingTaskId(task.id)
+    setEditingTitle(task.title)
+  }
+
+  function cancelEditing() {
+    setEditingTaskId(null)
+    setEditingTitle('')
+  }
+
+  function saveTask(event: FormEvent<HTMLFormElement>, id: number) {
+    event.preventDefault()
+    const title = editingTitle.trim()
+    if (!title) return
+
+    setTasks((currentTasks) =>
+      currentTasks.map((task) => (task.id === id ? { ...task, title } : task)),
+    )
+    cancelEditing()
   }
 
   return (
@@ -112,7 +135,27 @@ function App() {
               >
                 {task.completed && '✓'}
               </button>
-              <span className="task-title">{task.title}</span>
+              {editingTaskId === task.id ? (
+                <form className="edit-form" onSubmit={(event) => saveTask(event, task.id)}>
+                  <label className="sr-only" htmlFor={`edit-task-${task.id}`}>Edit task</label>
+                  <input
+                    id={`edit-task-${task.id}`}
+                    type="text"
+                    value={editingTitle}
+                    onChange={(event) => setEditingTitle(event.target.value)}
+                    autoFocus
+                  />
+                  <button className="edit-action save-action" type="submit">Save</button>
+                  <button className="edit-action cancel-action" type="button" onClick={cancelEditing}>Cancel</button>
+                </form>
+              ) : (
+                <>
+                  <span className="task-title">{task.title}</span>
+                  <button className="edit-button" type="button" aria-label={`Edit ${task.title}`} onClick={() => startEditing(task)}>
+                    Edit
+                  </button>
+                </>
+              )}
               <button className="delete-button" type="button" aria-label={`Delete ${task.title}`} onClick={() => deleteTask(task.id)}>
                 ×
               </button>
